@@ -1,0 +1,8 @@
+[
+  { "customer": "Alice", "date": "2025-08-15", "amount": 120 },
+  { "customer": "Alice", "date": "2025-08-20", "amount": 75 },
+  { "customer": "Bob", "date": "2025-09-10", "amount": 200 },
+  { "customer": "Bob", "date": "2025-09-15", "amount": 50 },
+  { "customer": "Alice", "date": "2025-10-05", "amount": 130 },
+  { "customer": "Bob", "date": "2025-10-10", "amount": 90 }
+]

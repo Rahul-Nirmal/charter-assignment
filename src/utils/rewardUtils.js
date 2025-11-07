@@ -16,19 +16,20 @@ export const groupByCustomer = (data) => {
   customers.forEach((customer) => {
     const customerTransactions = data.filter((t) => t.customer === customer);
 
-    const monthlyPoints = {};
+    
+    const monthlyPoints = new Map();
     const transactions = customerTransactions.map(({ date, amount }) => {
       const month = new Date(date).toLocaleString("default", { month: "long" });
       const points = calculatePoints(amount);
 
-      monthlyPoints[month] = (monthlyPoints[month] || 0) + points;
+      monthlyPoints.set(month, (monthlyPoints.get(month) || 0) + points);
 
       return { date, amount, points, month };
     });
 
-    const monthlyPointsArray = Object.keys(monthlyPoints).map((month) => ({
+    const monthlyPointsArray = [...monthlyPoints].map(([month, points]) => ({
       month,
-      points: monthlyPoints[month],
+      points,
     }));
 
     const totalPoints = transactions.reduce((sum, t) => sum + t.points, 0);
